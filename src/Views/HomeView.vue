@@ -2,6 +2,7 @@
 import HomeHeader from '../Components/Home/HomeHeader.vue'
 import HomeHeroContent from '../Components/Home/HomeHeroContent.vue'
 import HomeSearchBar from '../Components/Home/HomeSearchBar.vue'
+import HomeAvatarMenu from '../Components/Home/HomeAvatarMenu.vue'
 
 import backgroundImage from '../../Background-image.png'
 import iconImage from '../../Icon.png'
@@ -20,7 +21,7 @@ import iconImage from '../../Icon.png'
       <div class="grid grid-cols-[auto_1fr_auto] items-center gap-4 sm:gap-6">
         <HomeHeader :icon="iconImage" />
         <HomeSearchBar class="w-full justify-self-center" />
-        <div class="w-11 sm:w-14" aria-hidden="true"></div>
+        <HomeAvatarMenu />
       </div>
       <HomeHeroContent />
     </div>
