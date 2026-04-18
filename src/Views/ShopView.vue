@@ -1,8 +1,8 @@
 <script setup>
-
 import backgroundImage from '../../shop_page_background.png'
 import iconImage from '../../Icon.png'
 import NavBar from '../Components/NavBar.vue'
+import ProductCard from '../Components/Shop/ProductCard.vue'
 
 </script>
 <template>
@@ -21,7 +21,36 @@ import NavBar from '../Components/NavBar.vue'
         <span>Collection.</span>
       </h1>
     </div>
-    <div class="content-section relative -mt-16 rounded-3xl bg-white px-8 py-16 shadow-2xl shadow-slate-900/10">
+    <div
+      class="content-section relative -mt-16 rounded-3xl bg-white px-8 py-16 shadow-2xl shadow-slate-900/10"
+    >
+     <div class=" flex flex-row flex-wrap max-w-full justify-center lg:justify-start gap-8">
+       
+          <ProductCard
+            name="Urban Classic"
+            price="R$ 249,90"
+            :reviews="284"
+            :rating="4"
+            :image-src="backgroundImage"
+            image-label="Imagem do produto"
+          />
+            <ProductCard
+            name="Urban Classic"
+            price="R$ 249,90"
+            :reviews="284"
+            :rating="4"
+            :image-src="backgroundImage"
+            image-label="Imagem do produto"
+          />
+            <ProductCard
+            name="Urban Classic"
+            price="R$ 249,90"
+            :reviews="284"
+            :rating="4"
+            :image-src="backgroundImage"
+            image-label="Imagem do produto"
+          />
+      </div>
     </div>
   </main>
 </template>
