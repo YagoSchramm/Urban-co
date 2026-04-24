@@ -1,3 +1,13 @@
+<script setup>
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+
+const goToShop = () => {
+  router.push({ name: 'Shop' })
+}
+</script>
+
 <template>
   <section
     class="flex min-h-[calc(100vh-11rem)] max-w-[32rem] flex-col items-start justify-center pl-1 pb-6 sm:pl-7 md:pb-0"
@@ -18,6 +28,7 @@
     <button
       class="hero-content__button mt-5 inline-flex w-full items-center justify-between gap-4 rounded-[0.7rem] border-0 bg-white/95 px-5 py-2.5 text-[1.2rem] tracking-[-0.03em] text-stone-800 shadow-[0_18px_50px_rgba(0,0,0,0.2)] transition hover:-translate-y-0.5 hover:bg-white hover:shadow-[0_24px_55px_rgba(0,0,0,0.24)] sm:mt-9 sm:w-auto sm:px-6 sm:py-3 sm:text-[1.65rem]"
       type="button"
+      @click="goToShop"
     >
       <span>Shop Collection</span>
       <svg class="h-[1.2rem] w-[1.2rem] fill-current sm:h-[1.65rem] sm:w-[1.65rem]" viewBox="0 0 24 24" aria-hidden="true">
