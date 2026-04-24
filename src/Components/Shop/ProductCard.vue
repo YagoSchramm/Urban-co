@@ -1,4 +1,8 @@
 <script setup>
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+
 const props = defineProps({
   name: {
     type: String,
@@ -24,9 +28,17 @@ const props = defineProps({
     type: String,
     default: '',
   },
+  actionRouteName: {
+    type: String,
+    default: 'ProductDetail',
+  },
 })
 
 const stars = Array.from({ length: 5 }, (_, index) => index < props.rating)
+
+const goToActionRoute = () => {
+  router.push({ name: props.actionRouteName })
+}
 </script>
 
 <template>
@@ -95,6 +107,7 @@ const stars = Array.from({ length: 5 }, (_, index) => index < props.rating)
             type="button"
             aria-label="Adicionar ao carrinho"
             class="translate-y-5 flex h-16 w-16 items-center justify-center rounded-full border border-white/35 bg-white/18 shadow-[0_14px_30px_rgba(15,23,42,0.22),inset_0_1px_0_rgba(255,255,255,0.35)] backdrop-blur-md transition-transform duration-200 hover:scale-105"
+            @click="goToActionRoute"
           >
             <svg viewBox="0 0 24 24" class="h-8 w-8 fill-none stroke-white" stroke-width="1.9">
               <path

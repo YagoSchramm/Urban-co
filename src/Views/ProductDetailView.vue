@@ -85,7 +85,7 @@ const decrementQuantity = () => {
 
 <template>
   <main class="min-h-screen bg-[#fbfaf8] text-slate-900">
-    <NavBar :icon="iconImage" tone="light" radius-class="rounded-[1.9rem]" />
+    <NavBar :icon="iconImage" radius-class="rounded-[1.9rem]" />
 
     <div class="mx-auto max-w-7xl px-4 pb-16 pt-28 sm:px-6 lg:px-8">
       <div class="mb-8 flex items-center gap-3 text-sm text-slate-500">
