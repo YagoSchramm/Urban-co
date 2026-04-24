@@ -13,7 +13,15 @@ const navItems = [
 ]
 
 const props = defineProps({
-  icon: { type: String, required: true }
+  icon: { type: String, required: true },
+  tone: {
+    type: String,
+    default: 'dark',
+  },
+  radiusClass: {
+    type: String,
+    default: 'rounded-[1.5rem]',
+  },
 })
 
 const setActive = (label) => {
@@ -23,19 +31,28 @@ const setActive = (label) => {
 
 <template>
   <div class="fixed left-1/2 top-6 z-30 w-[min(88vw,760px)] -translate-x-1/2">
-    <nav class="flex items-center gap-3 rounded-full bg-white/20 px-4 py-2 shadow-[0_18px_50px_rgba(0,0,0,0.14)] backdrop-blur-md sm:px-5">
+    <nav
+      class="flex items-center gap-3 px-4 py-2 shadow-[0_18px_50px_rgba(0,0,0,0.14)] backdrop-blur-md sm:px-5"
+      :class="[radiusClass, tone === 'light' ? 'border border-slate-200 bg-white/85' : 'bg-white/20']"
+    >
       <img
         class="h-9 w-auto flex-shrink-0 object-contain"
         :src="icon"
         alt="Urban Co icon"
       />
-      <label class="flex min-w-0 flex-1 items-center gap-2 rounded-2xl border border-white/15 bg-white/10 px-3 py-2 text-white/80 transition focus-within:border-white/30 focus-within:bg-white/14">
-        <Search class="h-4 w-4 flex-shrink-0 stroke-[2.1]" />
+      <label
+        class="flex min-w-0 flex-1 items-center gap-2 rounded-2xl border px-3 py-2 transition"
+        :class="tone === 'light'
+          ? 'border-slate-200 bg-slate-50 text-slate-600 focus-within:border-slate-300 focus-within:bg-white'
+          : 'border-white/15 bg-white/10 text-white/80 focus-within:border-white/30 focus-within:bg-white/14'"
+      >
+        <Search class="h-4 w-4 flex-shrink-0 stroke-[2.1]" :class="tone === 'light' ? 'text-slate-500' : ''" />
         <input
           v-model="searchQuery"
           type="search"
           placeholder="Search products"
-          class="w-full min-w-0 bg-transparent text-sm text-white placeholder:text-white/55 outline-none"
+          class="w-full min-w-0 bg-transparent text-sm outline-none"
+          :class="tone === 'light' ? 'text-slate-900 placeholder:text-slate-400' : 'text-white placeholder:text-white/55'"
         />
       </label>
       <div class="flex items-center gap-2 sm:gap-3">
@@ -45,6 +62,7 @@ const setActive = (label) => {
           :label="item.label"
           :icon="item.icon"
           :active="activeItem === item.label"
+          :tone="tone"
           @click="setActive(item.label)"
         />
       </div>
